@@ -9,15 +9,15 @@ function App() {
     <Router>
     <div className="App">
       <nav>
-      <ul class="nav justify-content-end">
-        <li class="nav-item">
-          <Link class="nav-link" to="/">Home</Link>
+      <ul className="nav justify-content-end">
+        <li className="nav-item">
+          <Link className="nav-link" to="/">Home</Link>
         </li>
-        <li class="nav-item">
-          <Link class="nav-link" to="/signin">Sign In</Link>
+        <li className="nav-item">
+          <Link className="nav-link" to="/signin">Sign In</Link>
         </li>
-        <li class="nav-item">
-          <Link class="nav-link" to="/cart">Cart</Link>
+        <li className="nav-item">
+          <Link className="nav-link" to="/cart">Cart</Link>
         </li>
       </ul>
       </nav>  
