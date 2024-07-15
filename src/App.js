@@ -7,11 +7,27 @@ import Cart from './Components/Cart';
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/signin" element={<SignIn />}/>
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
+    <div className="App">
+      <nav>
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <Link class="nav-link" to="/">Home</Link>
+        </li>
+        <li class="nav-item">
+          <Link class="nav-link" to="/signin">Sign In</Link>
+        </li>
+        <li class="nav-item">
+          <Link class="nav-link" to="/cart">Cart</Link>
+        </li>
+      </ul>
+      </nav>  
+
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/signin" element={<SignIn />}/>
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+    </ div>
     </Router>
   );
 }
