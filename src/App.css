@@ -2,6 +2,7 @@ h1 {
   text-align: center;
 }
 
+/* Home page */
 .productImage {
   width: 100%;
   height: 200px;
@@ -35,4 +36,42 @@ h1 {
   width: 50%;
   height: 50%;
   margin: auto;
+}
+
+/* Product page */
+
+.productPage {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 50%;
+  gap: 2em;
+}
+
+.productPageImage {
+  width: 50%;
+  height: 550px;
+  object-fit: cover;
+}
+
+.productPageInfo {
+  width: 30%;
+}
+
+/* Cart page */
+
+.cart {
+  margin: auto;
+  width: 30%;
+}
+
+.cartProduct {
+  display: flex;
+  margin: 2em;
+}
+
+.cartProductImage {
+  width: 30%;
+  margin: 2em;
 }
