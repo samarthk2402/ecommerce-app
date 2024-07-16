@@ -10,6 +10,11 @@ h1 {
 
 .product {
   width: 20%; /* Adjust width as needed */
+  transition: transform 0.5s ease-in-out;
+}
+
+.product:hover {
+  transform: scale(1.05);
 }
 
 .productsContainer {
@@ -21,6 +26,7 @@ h1 {
 
 .filterMenu {
   display: flex;
+  align-items: baseline;
   gap: 1em;
   margin: 0 0 2em 0;
 }

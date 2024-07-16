@@ -1,94 +1,101 @@
-import Product from "./Product";
+import FilterDropdown from "./Home/FilterDropdown";
+import Product from "./Home/Product";
 import { useEffect, useState } from "react";
 
 const Home = () => {
   const products = [
     {
-      name: "shirt",
-      price: "10",
+      name: " Smart blue button Shirt",
+      price: "20.00",
       productImgSrc: "blueshirt.jpg",
       productImgAlt: "blue shirt",
-      category: "shirt",
+      category: "Shirts",
+      colour: "blue",
     },
     {
-      name: "shirt",
-      price: "10",
+      name: "Oversized brown pants",
+      price: "25.00",
       productImgSrc: "brownpants.jpg",
       productImgAlt: "brown pants",
-      category: "trousers",
+      category: "Trousers",
+      colour: "brown",
     },
     {
-      name: "shirt",
-      price: "10",
+      name: "White design shirt",
+      price: "12.50",
       productImgSrc: "chainshirt.jpg",
       productImgAlt: "white shirt",
-      category: "shirt",
+      category: "Shirts",
+      colour: "white",
     },
     {
-      name: "shirt",
-      price: "10",
+      name: "Navy crewneck shirt",
+      price: "10.00",
       productImgSrc: "navyshirt.jpg",
       productImgAlt: "navy shirt",
-      category: "shirt",
+      category: "Shirts",
+      colour: "blue",
     },
     {
-      name: "shirt",
-      price: "10",
+      name: "Brown shirt with white collar",
+      price: "15.00",
       productImgSrc: "oldmoneyshirt.jpg",
       productImgAlt: "brown shirt",
-      category: "shirt",
+      category: "Shirts",
+      colour: "brown",
     },
     {
-      name: "shirt",
-      price: "10",
+      name: "Pink crewneck shirt",
+      price: "10.00",
       productImgSrc: "pinkshirt.jpg",
       productImgAlt: "pink shirt",
-      category: "shirt",
+      category: "Shirts",
+      colour: "pink",
     },
     {
-      name: "shirt",
-      price: "10",
+      name: "Black and white oversized fluffy pants",
+      price: "£30",
       productImgSrc: "weirdpants.jpg",
       productImgAlt: "fluffy trousers",
-      category: "trousers",
+      category: "Trousers",
+      colour: "white",
     },
     {
-      name: "shirt",
-      price: "10",
+      name: "White patterned shirt",
+      price: "14.00",
       productImgSrc: "whiteshirt.jpg",
       productImgAlt: "white shirt",
-      category: "shirt",
+      category: "Shirts",
+      colour: "white",
     },
   ];
 
   const [category, setCategory] = useState([]);
+  const [colour, setColour] = useState([]);
 
-  const handleCategorySelect = (newCategory) => {
-    let selectedCategories = [...category];
-    if (category.includes(newCategory)) {
-      selectedCategories = selectedCategories.filter(
-        (cat) => cat !== newCategory
-      );
+  const handleFilterSelect = (filter, setFilter, newFilter) => {
+    let selectedFilters = [...filter];
+
+    if (filter.includes(newFilter)) {
+      selectedFilters = selectedFilters.filter((fil) => fil !== newFilter);
     } else {
-      selectedCategories = [...selectedCategories, newCategory];
+      selectedFilters = [...selectedFilters, newFilter];
     }
 
-    setCategory(selectedCategories);
+    setFilter(selectedFilters);
   };
 
   const [filteredProducts, setFilteredProducts] = useState(products);
 
   useEffect(() => {
-    console.log(category);
-    if (category.length === 0) {
-      setFilteredProducts(products);
-    } else {
-      setFilteredProducts(
-        products.filter((product) => category.includes(product.category))
-      );
-    } // eslint-disable-next-line
-  }, [category]);
-
+    setFilteredProducts(
+      products.filter(
+        (product) =>
+          (category.length === 0 || category.includes(product.category)) &&
+          (colour.length === 0 || colour.includes(product.colour))
+      )
+    );
+  }, [category, colour]);
   return (
     <>
       <h1>Home</h1>
@@ -96,32 +103,21 @@ const Home = () => {
         <div className="filterMenu">
           <p>Filter: </p>
 
-          <div className="dropdown">
-            <button
-              className="btn btn-secondary dropdown-toggle"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Category
-            </button>
-            <ul className="dropdown-menu">
-              <li>
-                <input
-                  type="checkbox"
-                  onChange={() => handleCategorySelect("shirt")}
-                />
-                Shirts
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  onChange={() => handleCategorySelect("trousers")}
-                />
-                Trousers
-              </li>
-            </ul>
-          </div>
+          <FilterDropdown
+            filter={category}
+            setFilter={setCategory}
+            filterName={"Category"}
+            options={["Shirts", "Trousers"]}
+            onFilter={handleFilterSelect}
+          />
+
+          <FilterDropdown
+            filter={colour}
+            setFilter={setColour}
+            filterName={"Colour"}
+            options={["blue", "brown", "white", "pink"]}
+            onFilter={handleFilterSelect}
+          />
         </div>
 
         <div className="productsContainer">
