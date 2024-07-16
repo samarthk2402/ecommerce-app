@@ -54,7 +54,7 @@ const Home = () => {
     },
     {
       name: "Black and white oversized fluffy pants",
-      price: "£30",
+      price: "30",
       productImgSrc: "weirdpants.jpg",
       productImgAlt: "fluffy trousers",
       category: "Trousers",
@@ -95,7 +95,7 @@ const Home = () => {
           (colour.length === 0 || colour.includes(product.colour))
       )
     );
-  }, [category, colour]);
+  }, [category, colour]); // eslint-disable-line
   return (
     <>
       <h1>Home</h1>
