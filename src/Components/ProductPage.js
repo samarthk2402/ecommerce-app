@@ -3,7 +3,7 @@ const ProductPage = ({ product, onAdd }) => {
     <div className="productPage">
       <img
         className="productPageImage"
-        src={product.productImgSrc}
+        src={process.env.PUBLIC_URL + product.productImgSrc}
         alt={product.productImgAlt}
       />
       <div className="productPageInfo">
