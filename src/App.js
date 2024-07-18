@@ -10,7 +10,7 @@ function App() {
     {
       name: " Smart blue button Shirt",
       price: "20.00",
-      productImgSrc: "blueshirt.jpg",
+      productImgSrc: "/blueshirt.jpg",
       productImgAlt: "blue shirt",
       category: "Shirts",
       colour: "blue",
