@@ -24,7 +24,7 @@ const Cart = ({ cartProducts, setCartProducts }) => {
         <div className="cartProduct">
           <img
             className="cartProductImage"
-            src={process.env.PUBLIC_URL + "/" + product.productImgSrc}
+            src={process.env.PUBLIC_URL + product.productImgSrc}
             alt={product.productImgAlt}
           />
           <div className="cartProductInfo">
