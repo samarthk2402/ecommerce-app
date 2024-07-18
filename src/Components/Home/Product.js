@@ -9,8 +9,8 @@ const Product = ({ name, price, productImgSrc, productImgAlt }) => {
           src={process.env.PUBLIC_URL + productImgSrc}
           alt={productImgAlt}
         />
-        <p>{name}</p>
-        <p>£{price}</p>
+        <p className="productName">{name}</p>
+        <p className="productName">£{price}</p>
       </Link>
     </div>
   );
