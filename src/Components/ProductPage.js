@@ -10,11 +10,13 @@ const ProductPage = ({ product, onAdd }) => {
         <h2>{product.name}</h2>
         <h3>£{product.price}</h3>
         <button
+          className="button"
           onClick={() => {
             onAdd(product);
+            window.alert(product.name + " has been added to your cart");
           }}
         >
-          Add to cart
+          <span>Add to cart</span>
         </button>
       </div>
     </div>

@@ -30,13 +30,13 @@ const Cart = ({ cartProducts, setCartProducts }) => {
           <div className="cartProductInfo">
             <h2>{product.name}</h2>
             <h3>£{product.price}</h3>
-            <button onClick={() => removeProduct(product)}>
-              Remove from cart
+            <button className="button" onClick={() => removeProduct(product)}>
+              <span>Remove from cart</span>
             </button>
           </div>
         </div>
       ))}
-      <h3>Total price: £{totalPrice.toFixed(2)}</h3>
+      <h3 className="cartInfo">Total price: £{totalPrice.toFixed(2)}</h3>
     </div>
   );
 };
